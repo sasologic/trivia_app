@@ -88,7 +88,7 @@ Tbe FLASK_APP variable detects the __init__.py  in the 'flaskr' directory for th
 - Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs.
 Example: curl 127.0.0.1:5000/categories
 
-
+```
 {
   "categories": {
     "1": "Science",
@@ -100,7 +100,7 @@ Example: curl 127.0.0.1:5000/categories
   },
   "success":true
 }
-
+```
 
 ---
 

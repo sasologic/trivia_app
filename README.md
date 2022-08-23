@@ -119,7 +119,7 @@ npm start
 - Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs.
 Example: curl 127.0.0.1:5000/categories
 
-
+```json
 {
   "categories": {
     "1": "Science",
@@ -131,7 +131,7 @@ Example: curl 127.0.0.1:5000/categories
   },
   "success":true
 }
-
+```
 
 ---
 
