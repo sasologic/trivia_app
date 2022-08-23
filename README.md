@@ -133,8 +133,6 @@ Example: curl 127.0.0.1:5000/categories
 }
 
 
----
-
 `GET '/categories/<int:category_id>/questions'`
 
 - Fetches questions for a cateogry specified by category_id request argument
