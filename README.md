@@ -131,7 +131,7 @@ Example: curl 127.0.0.1:5000/categories
   },
   "success":true
 }
-
+```
 
 `GET '/categories/<int:category_id>/questions'`
 
