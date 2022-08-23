@@ -119,7 +119,7 @@ npm start
 - Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs.
 Example: curl 127.0.0.1:5000/categories
 
-`
+```json
 {
   "categories": {
     "1": "Science",
@@ -141,6 +141,8 @@ Example: curl 127.0.0.1:5000/categories
 - Request Arguments: `category_id` - integer
 - Returns: An object with questions for the specified category, total questions for that category, and current category string
 Example: curl 127.0.0.1:5000/categories/questions/3
+```json
+{
 "current_category": 3,
   "questions": [
     {
@@ -168,7 +170,7 @@ Example: curl 127.0.0.1:5000/categories/questions/3
   "success": true,
   "total_questions": 3
 }
-
+```
 
 `GET '/questions?page=<int>'`
 
