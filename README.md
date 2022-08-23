@@ -349,11 +349,10 @@ A JSON response is returned when an error occurs.  The app handles the following
 
 ```json
 {
-  'success': False,
-  'error': 405,
-  'message': 'method not allowed'
+  "success": false,
+  "error": 405,
+  "message": "method not allowed"
 }
-
 ```
 
 ## Testing
