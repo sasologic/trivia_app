@@ -138,7 +138,7 @@ Example: curl 127.0.0.1:5000/categories
 - Fetches questions for a cateogry specified by category_id request argument
 - Request Arguments: `category_id` - integer
 - Returns: An object with questions for the specified category, total questions for that category, and current category string
-Example: curl 127.0.0.1:5000/categories/questions/3
+**Example:** `curl 127.0.0.1:5000/categories/questions/3`
 ```json
 {
 "current_category": 3,
