@@ -305,7 +305,7 @@ Example: curl 127.0.0.1:5000/categories
 - Request Body: JSON object from any supported client
 - Returns 404 status code if there are no questions that meets the search criteria
 - Returns `success` value, paginated `current_questions` that meets the search criteria and `total_questions` in quiz
-**Example:** `curl  curl 127.0.0.1:5000/questions/search -X POST -H 'Content-Type:application/json' -d '{"searchTerm":"Nigeria"}' `
+**Example:** `curl  curl 127.0.0.1:5000/questions/search -X POST -H 'Content-Type:application/json' -d {"searchTerm":"Nigeria"}' `
 
 ```json
   {
@@ -349,12 +349,11 @@ A JSON response is returned when an error occurs.  The app handles the following
 
 ```json
 {
-{
   'success': False,
   'error': 405,
   'message': 'method not allowed'
 }
-}
+
 ```
 
 ## Testing
