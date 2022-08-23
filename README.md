@@ -177,9 +177,9 @@ Example: curl 127.0.0.1:5000/categories
 - Request Arguments: `page` - integer which is optional
 - Returns: An object with 10 paginated questions, total questions, and object including all categories
 
-Example:  curl 127.0.0.1:5000/questions
+**Example:**  `curl 127.0.0.1:5000/questions`
 
-
+```json
   {
     "categories": {
     "1": "Science",
@@ -209,7 +209,7 @@ Example:  curl 127.0.0.1:5000/questions
   "success": true,
   "total_questions": 10
 }
-
+```
 
 ```
 ```
@@ -221,8 +221,10 @@ Example:  curl 127.0.0.1:5000/questions
 - Returns 200 status code if successfully deleted
 - Returns paginated `questions` and length of `total_questions`
 - Returns 404 if questions was not found in the database
-Example: curl -X DELETE 127.0.0.1:5000/questions/5
+**Example**: `curl -X DELETE 127.0.0.1:5000/questions/5`
 
+```json
+{
  "deleted": 5,
   "questions": [
     {
@@ -244,7 +246,7 @@ Example: curl -X DELETE 127.0.0.1:5000/questions/5
   "success": true,
   "total_questions": 10
 }
-
+```
 
 
 ---
@@ -254,9 +256,10 @@ Example: curl -X DELETE 127.0.0.1:5000/questions/5
 - Sends a post request in order to get the next random question based on a question category
 - Returns a new random question object
 - Request Body:
-Example: curl 127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions":[], "quiz_category":{"id":1,"type":"Science"}}'
+**Example:** `curl 127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions":[], "quiz_category":{"id":1,"type":"Science"}}' `
 
-
+```json
+{
  "question": {
     "answer": "Blood",
     "category": 1,
@@ -266,7 +269,7 @@ Example: curl 127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json"
   },
   "success": true
 }
-
+```
 
 `POST '/questions'`
 
@@ -275,9 +278,10 @@ Example: curl 127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json"
 - Returns 404 status code if there is no request body
 - Returns success value, id of newly created question, questions and length of total questions in quiz if successful
 
-Example:  curl 127.0.0.1:5000/questions -X POST -H 'Content-Type:application/json' -d '{"question":"What is the capital of Federal Repblic of Nigeria?","answer":"Abuja", "category":"4", "difficulty":"3"}'
+**Example:**  `curl 127.0.0.1:5000/questions -X POST -H 'Content-Type:application/json' -d '{"question":"What is the capital of Federal Repblic of Nigeria?","answer":"Abuja", "category":"4", "difficulty":"3"}' `
 
-
+```json
+{
 "created": 37,
   "questions": [
     {
@@ -292,7 +296,7 @@ Example:  curl 127.0.0.1:5000/questions -X POST -H 'Content-Type:application/jso
   "success": true,
   "total_questions": 32
 }
-
+```
 
 
 `POST '/questions/search'`
@@ -301,8 +305,10 @@ Example:  curl 127.0.0.1:5000/questions -X POST -H 'Content-Type:application/jso
 - Request Body: JSON object from any supported client
 - Returns 404 status code if there are no questions that meets the search criteria
 - Returns `success` value, paginated `current_questions` that meets the search criteria and `total_questions` in quiz
-Example: curl  curl 127.0.0.1:5000/questions/search -X POST -H 'Content-Type:application/json' -d '{"searchTerm":"Nigeria"}'
+**Example:** `curl  curl 127.0.0.1:5000/questions/search -X POST -H 'Content-Type:application/json' -d '{"searchTerm":"Nigeria"}' `
 
+```json
+  {
   "questions": [
     {
       "answer": "Muhammadu Buhari",
@@ -329,7 +335,7 @@ Example: curl  curl 127.0.0.1:5000/questions/search -X POST -H 'Content-Type:app
   "success": true,
   "total_questions": 32
 }
-
+```
 
 ## ERROR HANDLERS
 
@@ -339,12 +345,17 @@ A JSON response is returned when an error occurs.  The app handles the following
 3.  422: Unprocessable Entity
 
 #### Error Example
-##### 405 
+##### 405
+
+```json
+{
 {
   'success': False,
   'error': 405,
   'message': 'method not allowed'
 }
+}
+```
 
 ## Testing
 
