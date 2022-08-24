@@ -25,7 +25,7 @@ We recommend working within a virtual environment whenever using Python for proj
 ### PIP Dependencies
 Once your virtual environment is setup and running, install the required dependencies by navigating to the `/backend` directory and running:
 
-```bash or powershell
+```bash
 pip install -r requirements.txt
 ```
 
@@ -41,14 +41,14 @@ pip install -r requirements.txt
 
 With Postgres running, create a `trivia` database:
 
-```bash or powershell
+```bash
 CREATE DATABASE trivia;
 ```
 
 Populate the database using the `trivia.psql` file provided. From the `backend` folder in terminal run:
 
 
-```bash or powershell
+```bash
 psql -h localhost -U postgres -d trivia -f trivia.psql
 ```
 
@@ -57,11 +57,14 @@ psql -h localhost -U postgres -d trivia -f trivia.psql
 From within the `./backend` directory first ensure you are working using your created virtual environment.
 
 Set local environment variables by issuing the commands:
-```powershell
+
+For powershell users, execute
+```bash
 $env:FLASK_APP='flaskr'
 $env:FLASK_ENV='development'
 ```
 
+For git bash users, execute
 ```bash
 export FLASK_APP='flaskr'
 export FLASK_ENV='development'
@@ -69,7 +72,7 @@ export FLASK_ENV='development'
 
 To run the server, execute:
 
-```bash or powershell
+```bash
 py -m flask run
 ```
 
@@ -89,7 +92,7 @@ Tbe FLASK_APP variable detects the __init__.py  in the 'flaskr' directory for th
 2. **Installing project dependencies**
    This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the `frontend` directory of this repository. After cloning, open your terminal and run:
 
-```bash or powershell
+```bash
 npm install
 ```
 
@@ -103,7 +106,7 @@ The frontend app was built using create-react-app. In order to run the app in de
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.
 
-```bash or powershell
+```bash
 npm start
 ```
 
@@ -117,7 +120,8 @@ npm start
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - Request Arguments: None
 - Returns: An object with a single key, categories, that contains an object of id: category_string key:value pairs.
-Example: curl 127.0.0.1:5000/categories
+
+**Example:** `curl 127.0.0.1:5000/categories`
 
 ```json
 {
@@ -140,6 +144,7 @@ Example: curl 127.0.0.1:5000/categories
 - Returns: An object with questions for the specified category, total questions for that category, and current category string
 
 **Example:** `curl 127.0.0.1:5000/categories/questions/3`
+
 ```json
 {
 "current_category": 3,
@@ -174,7 +179,7 @@ Example: curl 127.0.0.1:5000/categories
 `GET '/questions?page=<int>'`
 
 - Fetches a paginated set of questions, a total number of questions and all categories.
-- Request Arguments: `page` - integer which is optional
+- Request Arguments: `page` - *integer* which is optional
 - Returns: An object with 10 paginated questions, total questions, and object including all categories
 
 **Example:**  `curl 127.0.0.1:5000/questions`
@@ -211,16 +216,15 @@ Example: curl 127.0.0.1:5000/categories
 }
 ```
 
-```
-```
 
 `DELETE '/questions/<int:question_id>'`
 
 - Deletes a specified question using the id of the question
-- Request Arguments: `question_id` - integer
+- Request Arguments: `question_id` - *integer*
 - Returns 200 status code if successfully deleted
 - Returns paginated `questions` and length of `total_questions`
 - Returns 404 if questions was not found in the database
+
 **Example**: `curl -X DELETE 127.0.0.1:5000/questions/5`
 
 ```json
@@ -255,7 +259,8 @@ Example: curl 127.0.0.1:5000/categories
 
 - Sends a post request in order to get the next random question based on a question category
 - Returns a new random question object
-- Request Body:
+- Request Body: `previous_questions` list which can be empty and `quiz_category` object
+
 **Example:** `curl 127.0.0.1:5000/quizzes -X POST -H "Content-Type: application/json" -d '{"previous_questions":[], "quiz_category":{"id":1,"type":"Science"}}' `
 
 ```json
@@ -274,9 +279,9 @@ Example: curl 127.0.0.1:5000/categories
 `POST '/questions'`
 
 - Sends a POST request in order to add a new `question`
-- Returns 200 status code if requst is successful
+- Returns 200 status code if request is successful
 - Returns 404 status code if there is no request body
-- Returns success value, id of newly created question, questions and length of total questions in quiz if successful
+- Returns success value, id of newly created question, questions and total questions in quiz 
 
 **Example:**  `curl 127.0.0.1:5000/questions -X POST -H 'Content-Type:application/json' -d '{"question":"What is the capital of Federal Repblic of Nigeria?","answer":"Abuja", "category":"4", "difficulty":"3"}' `
 
@@ -304,7 +309,8 @@ Example: curl 127.0.0.1:5000/categories
 - Sends a post request in order to search for a specific question by search term
 - Request Body: JSON object from any supported client
 - Returns 404 status code if there are no questions that meets the search criteria
-- Returns `success` value, paginated `current_questions` that meets the search criteria and `total_questions` in quiz
+- Returns `success` value, paginated `current_questions` that meets the search criteria and `total_questions` in the game
+
 **Example:** `curl  curl 127.0.0.1:5000/questions/search -X POST -H 'Content-Type:application/json' -d {"searchTerm":"Nigeria"}' `
 
 ```json
@@ -359,7 +365,7 @@ A JSON response is returned when an error occurs.  The app handles the following
 
 To deploy the tests, run
 
-```bash or powershell
+```bash
 DROP DATABASE IF EXISTS trivia_test;
 CREATE DATABASE trivia_test;
 psql -h localhost -U postgres -d trivia_test -f trivia.psql
