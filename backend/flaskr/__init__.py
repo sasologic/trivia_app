@@ -269,7 +269,7 @@ def create_app(test_config=None):
             # load a random question from our previous query,
             # which is not in the previous_questions list.
             question = questions.filter(Question.id.notin_(
-                previous_questions)).first_or_404()
+                previous_questions)).first()
 
         if question is None:
             return jsonify({
